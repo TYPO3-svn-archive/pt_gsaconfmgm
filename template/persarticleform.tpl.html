@@ -1,0 +1,171 @@
+{* Smarty *}
+{* Template for pt_gsaconfmgm personalize form;  
+	Author: Daniel Lienert <lienert@punkt.de> 2009-04-15 *}
+
+   <form action="{$faction_cart}" method="post" class="tx-ptgsashop-pi1-formdefault">
+
+    <br />
+	{* MESSAGE-BOX (conditional) *}
+	{if $cond_displayMsgBox}
+	    {'paErrorInForm'|ll}
+	    <br /><br />
+	{/if}
+	    
+    <table class="tx-ptgsashop-pi1-tabledefault">
+      {foreach key=articleId item=article from=$articleform.articles}
+        <tr>
+            <td class="tx-ptgsashop-pi1-tableheader" colspan="9">
+                {$article.name}
+            </td>
+        </tr>
+        
+        
+        {foreach key=personId item=person from=$article.perslist}
+	     <tr>
+	    	<td class="tx-ptgsashop-pi1-tablecell" rowspan="{$person.dscount}">
+	    		{$person.viewId}
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paCompany'|ll}:</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell" colspan="3">
+	    		<input type="text" size="25" maxlength="36" name="{$fieldprefix}[articles][{$articleId}][{$personId}][firm]" 
+	    													value="{$person.values.firm}" class="tx_ptgsaconfmgm_text {$person.class_firm}" />
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paJobStatus'|ll}:</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell" colspan="3">
+	    		<input type="text" size="25" maxlength="100" name="{$fieldprefix}[articles][{$articleId}][{$personId}][jobstatus]" 
+	    													value="{$person.values.jobstatus}"  class="tx_ptgsaconfmgm_text {$person.class_jobstatus}" />
+	    	</td>
+	    </tr>
+	    
+	    <tr>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paTitle'|ll}:</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<input type="text" size="10" maxlength="30" name="{$fieldprefix}[articles][{$articleId}][{$personId}][title]" 
+	    													value="{$person.values.title}"  class="tx_ptgsaconfmgm_text {$person.class_title}" />
+	    	</td>
+	    	
+	    
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paFirstName'|ll}:</span><span style="color: red; font-size: smaller; margin-left: 0.1em;">*</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<input type="text" size="10" maxlength="30" name="{$fieldprefix}[articles][{$articleId}][{$personId}][firstname]" 
+	    													value="{$person.values.firstname}" class="tx_ptgsaconfmgm_text {$person.class_firstname}" />
+	    	</td>
+	    	
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paMiddleName'|ll}:</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<input type="text" size="3" maxlength="30" name="{$fieldprefix}[articles][{$articleId}][{$personId}][middlename]" 
+	    													value="{$person.values.middlename}" class="tx_ptgsaconfmgm_text {$person.class_middlename}" />
+	    	</td>
+	    	
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paLastName'|ll}:</span><span style="color: red; font-size: smaller; margin-left: 0.1em;">*</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<input type="text" size="10" maxlength="30" name="{$fieldprefix}[articles][{$articleId}][{$personId}][lastname]" 
+	    													value="{$person.values.lastname}" class="tx_ptgsaconfmgm_text {$person.class_lastname}" />
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paEMail'|ll}:</span><span style="color: red; font-size: smaller; margin-left: 0.1em;">*</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell" colspan="7">
+	    		<input type="text" size="25" maxlength="50" name="{$fieldprefix}[articles][{$articleId}][{$personId}][email]" 
+	    													value="{$person.values.email}" class="tx_ptgsaconfmgm_text {$person.class_email}" />
+	    	</td>
+	    	
+	    </tr>
+	    	
+	    	{*
+	    	*  Voucher field for sponsered tickets 
+	    	*}
+	    	
+	    	{if $article.voucher_required eq 1}
+	    	<tr>
+			    	<td class="tx-ptgsashop-pi1-tablecell">
+			    		<span>{'paVoucher'|ll}</span><span style="color: red; font-size: smaller; margin-left: 0.1em;">*</span>
+			    	</td>
+			    	<td class="tx-ptgsashop-pi1-tablecell" colspan="7">	
+						<div><input type="text" size="60" maxlength="100" name="{$fieldprefix}[articles][{$articleId}][{$personId}][vouchercode]" 
+	    													value="{$person.values.vouchercode}" class="tx_ptgsaconfmgm_text {$person.class_vouchercode}" /></div>
+	    				<div>
+	    					{if $person.errmsg_vouchercode neq ''}
+	    					<span style="color: red; font-size: smaller; margin-left: 0.1em;">{$person.errmsg_vouchercode|ll}</span>
+	    					{else}
+	    					{'paVoucherDescription'|ll}
+	    					{/if}
+	    				</div>									
+			    	</td>
+
+			    </tr>
+	    	{/if}
+	    	
+	    	
+	    	{*
+	    	*  Additional Article info 
+	    	*}
+		    {foreach key=infoid item=info from=$person.infolist}
+			    <tr>
+			    	<td class="tx-ptgsashop-pi1-tablecell">
+			    		<span>{$info.title}</span>
+			    	</td>
+			    	<td class="tx-ptgsashop-pi1-tablecell" colspan="2">
+			    		
+			    		{if $info.inputtype eq 0}
+			    			{* type text *}
+							<input class="tx_ptgsaconfmgm_text" type="text" name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]" value="{$person.values.info[$infoid]}"></input>		
+							
+						{elseif $info.inputtype eq 1}
+			    			{* type select *}
+							<select name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]" class="tx_ptgsaconfmgm_select">
+							{if $info.inputdefault != ''}
+								<option value="0" {if $person.values.info[$infoid] eq $optionid}selected="1"{/if}>{$info.inputdefault}</option>
+							{/if}
+							{foreach key=optionid item=optionlabel from=$info.options}    			
+			    				<option value="{$optionid}" {if $person.values.info[$infoid] eq $optionid}selected="1"{/if}>{$optionlabel}</option>							
+			    			{/foreach}
+							</select>			
+						
+			    		{elseif $info.inputtype eq 2}
+			    			{* type textarea *}
+							<textarea class="tx_ptgsaconfmgm_text" cols="24" rows="3" name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]">{$person.values.info[$infoid]}</textarea>		
+
+			    		{/if}	
+			    			    													
+			    	</td>
+			    	<td class="tx-ptgsashop-pi1-tablecell" colspan="5" valign="top">{$info.description}</td>
+			    </tr>
+		    {/foreach} {* end personal article info section *}
+	    
+	    {/foreach} {* end personal foreach *}
+        
+        <tr>
+            <td style="height:10px" colspan="9"></td>
+        </tr>
+               
+        {/foreach} {* end article foreach *}
+        
+        <tr>
+          <td colspan="9" style="text-align:right" align="right">
+                <input type="submit" name="{$articleform.persCheckoutButton_name}" value="{$articleform.persCheckoutButton_label}" class="tx_ptgsaconfmgm_button" />
+            </td>
+        </tr>
+    
+    {****** FOOTER ******}      
+       </table> 
+		<input type="hidden" name="no_cache" value="1" />
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[persDataUid]" value="{$articleform.persDataUid}">
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[listPageUid]" value="{$articleform.listPageUid}">
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[action]" value="{$articleform.controllerAction}">
+		             
+  </form>

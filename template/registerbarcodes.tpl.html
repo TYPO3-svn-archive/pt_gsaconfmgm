@@ -1,0 +1,50 @@
+<div class="barcodeInput {$state.stateClass}">
+	<div>
+		<form action="{$faction_registerocode}" method="post" class="{$prefixId}-formdefault">
+			<div class="type-text">
+				<label for="{$prefixId}_ticketcode">{'ciScannerInputField'|ll}</label>
+	  			<input type="text" name="{$prefixId}[ticketcode]" id="{$prefixId}_ticketcode" size="20" />
+	  			<input type="hidden" name="{$prefixId}[action]" value="submitBarcode"> 
+			</div>
+		</form>
+	</div>
+	<div>
+	(Mode: {$state.mode})
+	</div>
+	<div class="stateMsg">
+		{$state.insertMsg}
+	</div>
+</div>
+<div class="ticketData">
+	<div><h2>Participants</h2></div>
+	<div>{$listTicketData}</div>
+
+	<div><h2>Goodies</h2></div>
+	<div>
+	
+	
+	<table class="tx-ptlist-list tx-ptlist-list-standard listTicketData">
+		<tbody>
+		<tr>
+			<th class="tx-ptlist-list-header">Article</th>
+			<th class="tx-ptlist-list-header">Amount</th>			
+		</tr>
+			{foreach key=key item=value from=$stocklist}
+				<tr class="odd">
+					<td>{$key}</td>
+					<td>{$value}</td>
+				</tr>
+			{/foreach}
+
+		</tbody>
+	</table>
+	
+	
+	</div>
+	
+	<div class="checkInStats">
+		<div><span>Checked In: </span><span style="font-weight:bold">{$checkinstats.1}</div>
+		<div><span>Not Checked In: </span><span style="font-weight:bold">{$checkinstats.0}</div>		
+	</div>
+	
+</div>

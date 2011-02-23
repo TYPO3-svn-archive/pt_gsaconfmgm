@@ -1,0 +1,98 @@
+{* Smarty *}
+{* Template for pt_gsaconfmgm personalize form;  
+	Author: Daniel Lienert <lienert@punkt.de> 2009-04-15 *}
+	
+   <form action="{$faction_cart}" method="post" class="tx-ptgsashop-pi1-formdefault">
+    <br />
+	{* MESSAGE-BOX (conditional) *}
+	{if $cond_displayMsgBox}
+	    {'paErrorInForm'|ll}
+	    <br /><br />
+	{/if}
+    
+    <table class="tx-ptgsashop-pi1-tabledefault">
+      {foreach key=articleId item=article from=$articleform.articles}
+        <tr>
+            <td class="tx-ptgsashop-pi1-tableheader" colspan="4">
+                {$article.name}
+            </td>
+        </tr>
+        
+        
+	    {foreach key=personId item=person from=$article.perslist}
+	     <tr>
+	    	<td class="tx-ptgsashop-pi1-tablecell" rowspan="{$person.dscount}">
+	    		{$person.viewId}
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell">
+	    		<span>{'paRelateUser'|ll}:</span>
+	    	</td>
+	    	<td class="tx-ptgsashop-pi1-tablecell" colspan="2">
+	    		<select name="{$fieldprefix}[articles][{$articleId}][{$personId}][relatedArticle]" class="tx-ptgsashop-pi1-input {$person.class_userselect}">
+						
+						<option value="">{'paPleaseSelectRelateUser'|ll}</option>						
+						
+						{foreach key=optionid item=optionlabel from=$article.relatedSelectList}    			
+		    				<option value="{$optionid}" {if $person.values.relatedArticle eq $optionid}selected="selected"{/if}>{$optionlabel}</option>							
+		    			{/foreach}
+				</select>
+	    	</td>
+	    </tr>
+	    	
+	    	{*
+	    	*  Additional Article info 
+	    	*}
+		    {foreach key=infoid item=info from=$person.infolist}
+			    <tr>
+			    	<td class="tx-ptgsashop-pi1-tablecell">
+			    		<span>{$info.title}</span>
+			    	</td>
+			    	<td class="tx-ptgsashop-pi1-tablecell">
+			    		
+			    		{if $info.inputtype eq 0}
+			    			{* type text *}
+							<input class="tx_ptgsaconfmgm_text" type="text" name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]" value="{$person.values.info[$infoid]}"></input>		
+							
+						{elseif $info.inputtype eq 1}
+			    			{* type select *}
+							<select name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]" class="tx_ptgsaconfmgm_select">
+							{if $info.inputdefault != ''}
+								<option value="0" {if $person.values.info[$infoid] eq $optionid}selected="1"{/if}>{$info.inputdefault}</option>
+							{/if}
+							{foreach key=optionid item=optionlabel from=$info.options}    			
+			    				<option value="{$optionid}" {if $person.values.info[$infoid] eq $optionid}selected="1"{/if}>{$optionlabel}</option>							
+			    			{/foreach}
+							</select>			
+						
+			    		{elseif $info.inputtype eq 2}
+			    			{* type textarea *}
+							<textarea class="tx_ptgsaconfmgm_text" cols="24" rows="3" name="{$fieldprefix}[articles][{$articleId}][{$personId}][info][{$info.uid}]">{$person.values.info[$infoid]}</textarea>		
+
+			    		{/if}	
+			    			    													
+			    	</td>
+			    	<td class="tx-ptgsashop-pi1-tablecell" valign="top">{$info.description}</td>
+			    </tr>
+		    {/foreach} {* end personal article info section *}
+	    
+	    {/foreach} {* end personal section *}
+        
+        <tr>
+            <td style="height:10px" colspan="4"></td>
+        </tr>
+               
+        {/foreach} {* end article section *}
+        
+        <tr>
+          <td colspan="4" style="text-align:right" align="right">
+                <input type="submit" name="{$articleform.relCheckoutButton_name}" value="{$articleform.relCheckoutButton_label}" class="tx_ptgsaconfmgm_button" />
+            </td>
+        </tr>
+    
+    {****** FOOTER ******}      
+       </table> 
+		<input type="hidden" name="no_cache" value="1" />
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[persDataUid]" value="{$articleform.persDataUid}">
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[listPageUid]" value="{$articleform.listPageUid}">
+		<input type="hidden" name="tx_ptgsaconfmgm_controller_persarticle[action]" value="{$articleform.controllerAction}">		             
+  </form>

@@ -1,0 +1,21 @@
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/_default/config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/_default/plugin.tx_ptgsaconfmgm.ts">
+
+// Include general pt_list configuration
+//<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/ext_ptlist.config.ts">
+
+// include list configuration
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.baseConfig.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.purchasedArticles.ts">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.eventSelector.ts">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.persInfoBase.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.tShirtSizes.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.attendeeList.ts">
+
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.invoiceList.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.assocList.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_gsaconfmgm/typoscript/static/pt_list/plugin.tx_ptlist.listConfig.editArticleDataList.ts">

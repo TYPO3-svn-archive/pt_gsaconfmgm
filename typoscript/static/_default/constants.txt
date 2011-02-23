@@ -1,0 +1,37 @@
+plugin.tx_ptgsaconfmgm { 
+	# cat=pt_gsaconfmgm::general/enable/010; type=string; label=Article Personalize Page (PID or alias) of the TYPO3 page where you've integrated the "GSA ConfMgm: Article Personalize" plugin
+    personalizeArticlePage = personalizeArticle
+    
+    # cat=pt_gsaconfmgm::general/enable/011; type=string; label=User login page (PID or alias)
+    userLoginPage = login
+    
+    # cat=pt_gsaconfmgm::general/enable/012; type=string; label=Edit personal data page (PID or alias)
+    editPersonalDataPage = editPersonalData
+    
+    # cat=pt_gsaconfmgm::general/enable/030; type=string; label=Id of the group wich contains user with assigned tickets
+    ticketUserGroup = 0
+    
+    # cat=pt_gsaconfmgm::general/enable/040; type=string; label=Article Custom Field Nr for Conference Article Configuration
+    articleCustomFieldWithConfig = 2
+    
+    # cat=pt_gsaconfmgm::general/enable/050; type=string; label=Id of a pt_gsacategories Article Category for tickets
+    ticketCategory = 1
+    
+    # cat=pt_gsaconfmgm::general/enable/060; type=string; label=Check In Printout Page (PID or alias)
+    checkInPrintoutPage = 1
+    
+    # cat=pt_gsaconfmgm::general/enable/070; type=integer; label= PID of sysfolder where the personalized data is stored
+    persDataStorage = 0
+    
+    # cat=pt_gsaconfmgm::template/enable/010; type=string; label=Template for Personal Article Page
+    view.persarticleform.template = EXT:pt_gsaconfmgm/template/persarticleform.tpl.html
+    
+    # cat=pt_gsaconfmgm::template/enable/040; type=string; label=Template for Related Article Page
+    view.persrelatedform.template = EXT:pt_gsaconfmgm/template/persrelatedform.tpl.html
+    
+    # cat=pt_gsaconfmgm::template/enable/050; type=string; label=Template for Change My Conference Options Page
+    view.editmydataform.template = EXT:pt_gsaconfmgm/template/editmydataform.tpl.html
+    
+	
+}
+

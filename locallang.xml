@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for plugin 'pt_gsaconfmgm'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		<!-- List View -->
+		<label index="paRelateUser">Relate to</label>
+		<label index="paPleaseSelectRelateUser">[ Please select ]</label>
+		<label index="paCompany">Company</label>
+		<label index="paTitle">Title</label>
+		<label index="paFirstName">Firstname</label>
+		<label index="paMiddleName">Middlename</label>
+		<label index="paCareerLevel">Career Level</label>
+		<label index="paLastName">Lastname</label>
+		<label index="paEMail">eMail</label>
+		<label index="paCheckOutButton">Checkout</label>
+		<label index="paErrorInForm">There is one or more errors in the formular. Please correct the values in the red-bordered fields.</label>
+		<label index="paVoucher">Voucher</label>
+		<label index="paVoucherDescription">To purchase this type of ticket, you have to insert a valid voucher-code.</label>
+		<label index="paNotLoggedin"></label>
+		<label index="paJobStatus">Job Status</label>
+		<label index="paInfoOptionsSuccessfullySaved">Your Conference Options were successfully saved.</label>
+		<label index="paNoOptionToEdit">Here you can edit your ticket options for the conference. There is nothing to edit here at the moment.</label>
+		
+		<!-- edit Article -->
+		<label index="paErrVoucherAlreadyEncashed">The voucher with this code was already encashed.</label>
+		<label index="paErrVoucherNotValid">The given voucher code is not valid.</label>
+		<label index="paErrVoucherExpired">The voucher with this code was expired.</label>
+		<label index="paErrVoucherNotValidForThisArticle">The given voucher code is not valid for this article.</label>
+		
+		<label index="paLabelCheckout">Next</label>
+
+		
+		<label index="checkInOK">The ticketcode has been accepted.</label>
+		<label index="checkInError_TicketNotFound">The ticketcode is not vaild.</label>
+		<label index="checkInError_codeIsNoTicket">The code dos not belong to a ticket.</label>
+		<label index="checkInError_TicketAlreadyCheckedIn">This ticket had been previously checked in.</label>
+
+		<label index="gsaAdmin_artForm_header_confMGM">Conference Management</label>
+		<label index="gsaAdmin_artForm_articleEvent">Event</label>
+		<label index="gsaAdmin_artForm_physicalFlag">Article is physical</label>
+		<label index="gsaAdmin_artForm_personalizableFlag">Article is personalizable</label>
+		<label index="gsaAdmin_artForm_persrelatedFlag">Article is related to a personalized article</label>
+		<label index="gsaAdmin_artForm_voucherRequiredFlag">Requires voucher</label>
+		<label index="gsaAdmin_artForm_sorting">Sorting</label>
+		<label index="gsaAdmin_artForm_noEventSelected">[ No event selected ]</label>
+
+		<label index="ciScannerInputField">Barcode</label>
+		
+		<!-- pt_list : persArticleDataList -->
+		<label index="persdata_column_articleCode">Article</label>
+		<label index="persdata_column_ticketCode">Ticket ID</label>
+		<label index="persdata_column_company">Company</label>
+		<label index="persdata_column_name">Name</label>
+		<label index="persdata_column_jobstatus">Jobstatus</label>
+		<label index="persdata_column_edit">Edit</label>
+		<label index="persdata_column_eventCode">Event</label>
+		<label index="persdata_column_tutorial">Tutorial</label>		
+		
+		</languageKey>
+	</data>
+</T3locallang>
